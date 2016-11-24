@@ -6,8 +6,8 @@ function CommentContainer (props) {
     <div className='box'>
       <h3 className='title is-3'>Comments</h3>
       {
-        props.comments.map((comment) => {
-          return <CommentCard comment={comment} />;
+        props.comments.map((comment, i) => {
+          return <CommentCard key={i} comment={comment} />;
         })
       }
     </div>
