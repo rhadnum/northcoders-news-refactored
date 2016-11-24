@@ -12,7 +12,7 @@ export function fetchArticles () {
         if (err) dispatch({ type: types.FETCH_ARTICLES_ERROR, err });
         else dispatch({ type: types.FETCH_ARTICLES_SUCCESS, data: res.body });
       });
-  }
+  };
 }
 
 export function fetchTopics () {
@@ -22,11 +22,19 @@ export function fetchTopics () {
       .get(`${ROOT}/topics`)
       .end((err, res) => {
         if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, err });
-        else dispatch({ type: types.FETCH_TOPICS_SUCCESS, data: res.body});
+        else dispatch({ type: types.FETCH_TOPICS_SUCCESS, data: res.body });
       });
-  }
+  };
 }
 
-
-
-
+export function fetchArticle (id) {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_ARTICLE_REQUEST });
+    request
+      .get(`${ROOT}/articles/${id}`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_ARTICLE_ERROR, err });
+        else dispatch({ type: types.FETCH_ARTICLE_SUCCESS, data: res.body });
+      });
+  };
+}
