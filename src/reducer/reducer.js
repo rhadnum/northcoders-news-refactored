@@ -27,7 +27,7 @@ function reducer (prevState = initialState, action) {
       break;
 
     default:
-      return initialState;
+      return prevState;
 
   }
 
