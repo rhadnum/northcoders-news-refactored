@@ -5,7 +5,7 @@ const ArticleFull = function (props) {
     <div className='box'>
       <h3 className='title is-3'>Article</h3>
     </div>
-  )
-}
+  );
+};
 
 export default ArticleFull;

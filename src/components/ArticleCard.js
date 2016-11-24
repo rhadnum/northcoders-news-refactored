@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 const ArticleCard = function (props) {
   return (
@@ -6,16 +7,18 @@ const ArticleCard = function (props) {
       <article className='media'>
         <div className='media-left'>
           <p>Upvotes:</p>
-          {props.votes}
+          {props.article.votes}
         </div>
         <div className='media-content'>
           <div className='content'>
-            <h3 className='title is-3'>{props.title}</h3>
+            <Link to={`/article/${props.article._id}`}>
+              <h3 className='title is-3'>{props.article.title}</h3>
+            </Link>
           </div>
         </div>
       </article>
     </div>
-  )
-}
+  );
+};
 
 export default ArticleCard;

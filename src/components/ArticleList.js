@@ -10,11 +10,10 @@ const ArticleList = React.createClass({
   },
   render () {
     let articles;
-    console.log(this.props.params)
-    if(!this.props.params.topicName){
+    if (!this.props.params.topicName) {
       articles = this.props.articles
         .map(function (article, i) {
-          return <ArticleCard title={article.title} votes={article.votes} key={i}/>
+          return <ArticleCard article={article} key={i} />;
         });
     } else {
       articles = this.props.articles
@@ -22,12 +21,16 @@ const ArticleList = React.createClass({
           return article.belongs_to === this.props.params.topicName;
         })
         .map(function (article, i) {
-          return <ArticleCard title={article.title} votes={article.votes} key={i}/>
+          return <ArticleCard article={article} key={i} />;
         });
     }
+
     return (
-      <div id='ArticleList' className="box">
-        <h3 className="title is-3">{!this.props.params.topicName || this.props.topics.length === 0 ? 'Home' : this.props.topics.find((e) => e.slug === this.props.params.topicName).title}</h3>
+      <div id='ArticleList' className='box'>
+        <h3 className='title is-3'>
+          {!this.props.params.topicName || this.props.topics.length === 0
+            ? 'Home' : this.props.topics.find((e) => e.slug === this.props.params.topicName).title}
+        </h3>
         {articles}
       </div>
     );
