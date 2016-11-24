@@ -10,7 +10,7 @@ const NavBar = React.createClass({
   render: function () {
     return (
       <div>
-        <Link to="./">Home</Link>
+        <Link to="/">Home</Link>
         { this.props.topics && this.props.topics.map(function (topic, i) {
           return <Link to={topic.slug} key={i}>{topic.title}</Link>
         })}

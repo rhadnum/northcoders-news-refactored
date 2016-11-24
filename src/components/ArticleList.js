@@ -5,16 +5,30 @@ import * as actions from '../actions/actions';
 import ArticleCard from './ArticleCard';
 
 const ArticleList = React.createClass({
-  componentWillMount () {
+  componentDidMount () {
     this.props.fetchArticles();
   },
   render () {
+    let articles;
+    console.log(this.props.params)
+    if(!this.props.params.topicName){
+      articles = this.props.articles
+        .map(function (article, i) {
+          return <ArticleCard title={article.title} votes={article.votes} key={i}/>
+        });
+    } else {
+      articles = this.props.articles
+        .filter((article) => {
+          return article.belongs_to === this.props.params.topicName;
+        })
+        .map(function (article, i) {
+          return <ArticleCard title={article.title} votes={article.votes} key={i}/>
+        });
+    }
     return (
       <div id='ArticleList' className="box">
-        <h3 className="title is-3">Article List</h3>
-        {this.props.articles.map(function (article, i) {
-          return <ArticleCard title={article.title} votes={article.votes} key={i}/>
-        })}
+        <h3 className="title is-3">{!this.props.params.topicName || this.props.topics.length === 0 ? 'Home' : this.props.topics.find((e) => e.slug === this.props.params.topicName).title}</h3>
+        {articles}
       </div>
     );
   }
@@ -22,7 +36,8 @@ const ArticleList = React.createClass({
 
 function mapStateToProps (state) {
   return {
-    articles: state.articles
+    articles: state.articles,
+    topics: state.topics
   };
 }
 

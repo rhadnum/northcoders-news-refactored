@@ -3,6 +3,7 @@ import * as types from '../actions/types';
 const initialState = {
   articles: [],
   selectedTopic: null,
+  topics: []
 };
 
 function reducer (prevState = initialState, action) {
@@ -14,7 +15,7 @@ function reducer (prevState = initialState, action) {
       break;
 
     case types.FETCH_TOPICS_SUCCESS:
-      newState.topics = action.data;
+      newState.topics = action.data.topics;
       break;
 
     default:

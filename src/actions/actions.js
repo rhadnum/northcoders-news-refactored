@@ -22,7 +22,7 @@ export function fetchTopics () {
       .get(`${ROOT}/topics`)
       .end((err, res) => {
         if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, err });
-        else dispatch({ type: types.FETCH_TOPICS_SUCCESS, data: res.body.topics });
+        else dispatch({ type: types.FETCH_TOPICS_SUCCESS, data: res.body});
       });
   }
 }

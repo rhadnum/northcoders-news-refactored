@@ -16,6 +16,7 @@ ReactDOM.render(<Provider store={store}>
                   <Router history={browserHistory}>
                     <Route path='/' component={App}>
                       <IndexRoute component={ArticleList}/>
+                      <Route path='/:topicName' component={ArticleList}/>
                     </Route>
                   </Router>
                 </Provider>, document.getElementById('app'));
