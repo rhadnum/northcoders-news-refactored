@@ -10,7 +10,8 @@ const ArticleList = React.createClass({
   },
   render () {
     return (
-      <div id='ArticleList'>
+      <div id='ArticleList' className="box">
+        <h3 className="title is-3">Article List</h3>
         {this.props.articles.map(function (article, i) {
           return <ArticleCard title={article.title} votes={article.votes} key={i}/>
         })}
