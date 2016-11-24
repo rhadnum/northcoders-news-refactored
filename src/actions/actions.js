@@ -14,3 +14,19 @@ export function fetchArticles () {
       });
   }
 }
+
+export function fetchTopics () {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_TOPICS_REQUEST });
+    request
+      .get(`${ROOT}/topics`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, err });
+        else dispatch({ type: types.FETCH_TOPICS_SUCCESS, data: res.body.topics });
+      });
+  }
+}
+
+
+
+
