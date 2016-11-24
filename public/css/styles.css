@@ -16,3 +16,11 @@ body {
 .comment-subtext span:first-child {
   color: rgb(170, 170, 170);
 }
+
+.vote-up{
+  color:green;
+}
+
+.vote-down{
+  color:orangered;
+}
