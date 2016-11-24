@@ -6,17 +6,21 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
+import reducer from './reducer/reducer';
 import App from './components/App';
 import ArticleList from './components/ArticleList';
-import reducer from './reducer/reducer';
+import ArticleFull from './components/ArticleFull';
 
 const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
 
-ReactDOM.render(<Provider store={store}>
-                  <Router history={browserHistory}>
-                    <Route path='/' component={App}>
-                      <IndexRoute component={ArticleList}/>
-                      <Route path='/:topicName' component={ArticleList}/>
-                    </Route>
-                  </Router>
-                </Provider>, document.getElementById('app'));
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path='/' component={App}>
+        <IndexRoute component={ArticleList} />
+        <Route path='/article/:article_id' component={ArticleFull} />
+        <Route path='/:topicName' component={ArticleList} />
+      </Route>
+    </Router>
+  </Provider>, document.getElementById('app')
+);
