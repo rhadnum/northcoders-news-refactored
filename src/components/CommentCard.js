@@ -1,4 +1,6 @@
 import React from 'react';
+import request from 'superagent';
+import {ROOT} from '../../config';
 
 class CommentCard extends React.Component {
   constructor(props){
@@ -13,13 +15,20 @@ class CommentCard extends React.Component {
     if(this.state.hasVoted !== 0) return;
     this.setState({
       hasVoted: 1
-    })
+    });
+
+    request
+      .put(`${ROOT}/comments/${this.props.comment._id}?vote=up`)
+      .end()
   }
   voteDown(){
     if(this.state.hasVoted !== 0) return;
     this.setState({
       hasVoted: -1
     })
+    request
+      .put(`${ROOT}/comments/${this.props.comment._id}?vote=down`)
+      .end()
   }
   render () {
     return (
