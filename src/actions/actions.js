@@ -38,3 +38,15 @@ export function fetchArticle (id) {
       });
   };
 }
+
+export function fetchComments (id) {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_COMMENTS_REQUEST });
+    request
+      .get(`${ROOT}/articles/${id}/comments`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_COMMENTS_ERROR, err });
+        else dispatch({ type: types.FETCH_COMMENTS_SUCCESS, data: res.body });
+      });
+  };
+}

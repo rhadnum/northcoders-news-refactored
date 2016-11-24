@@ -5,6 +5,7 @@ import * as actions from '../actions/actions';
 class ArticleFull extends React.Component {
   componentDidMount () {
     this.props.fetchArticle();
+    this.props.fetchComments();
   }
   render () {
     const {article} = this.props;
@@ -18,7 +19,7 @@ class ArticleFull extends React.Component {
           </h4>
           <p>{article.body}</p>
         </div>
-      );
+      );fetchArticle
     } else {
       return (
         <div className='box'>Loading...</div>
@@ -29,7 +30,8 @@ class ArticleFull extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    article: state.currArticle
+    article: state.currArticle,
+    comments: state.currArticleComments
   };
 }
 
@@ -37,6 +39,9 @@ function mapDispatchToProps (dispatch, currProps) {
   return {
     fetchArticle: function () {
       dispatch(actions.fetchArticle(currProps.params.article_id));
+    },
+    fetchComments: function () {
+      dispatch(actions.fetchComments(currProps.params.article_id));
     }
   };
 }

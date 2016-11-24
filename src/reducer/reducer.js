@@ -22,6 +22,10 @@ function reducer (prevState = initialState, action) {
       newState.currArticle = action.data;
       break;
 
+    case types.FETCH_COMMENTS_SUCCESS:
+      newState.currArticleComments = action.data.comments;
+      break;
+
     default:
       return initialState;
 
