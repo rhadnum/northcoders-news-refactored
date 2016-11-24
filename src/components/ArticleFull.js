@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
+import CommentContainer from './CommentContainer';
 
 class ArticleFull extends React.Component {
   componentDidMount () {
@@ -18,8 +19,9 @@ class ArticleFull extends React.Component {
             in <a href='#'>{article.belongs_to}</a>
           </h4>
           <p>{article.body}</p>
+          {this.props.comments && <CommentContainer comments={this.props.comments} />}
         </div>
-      );fetchArticle
+      )
     } else {
       return (
         <div className='box'>Loading...</div>
