@@ -1,0 +1,18 @@
+body {
+  width: 1000px;
+  margin: 20px auto;
+}
+
+.comment-body {
+  font-size: 1.1em;
+  margin-bottom: 0.4em;
+}
+
+.comment-subtext {
+  font-size: 0.9em;
+  color: grey;
+}
+
+.comment-subtext span:first-child {
+  color: rgb(170, 170, 170);
+}

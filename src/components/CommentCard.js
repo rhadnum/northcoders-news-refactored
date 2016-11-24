@@ -4,8 +4,10 @@ class CommentCard extends React.Component {
   render () {
     return (
       <div className='box'>
-        <p>{this.props.comment.body}</p>
-        <p>Posted {this.formatDate()} by {this.props.comment.created_by}</p>
+        <p className='comment-body'>{this.props.comment.body}</p>
+        <p className='comment-subtext'>
+          Posted <span>{this.formatDate()}</span> by <a href='#'>{this.props.comment.created_by}</a>
+        </p>
       </div>
     );
   }
