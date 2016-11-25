@@ -40,10 +40,14 @@ class ArticleCard extends React.Component {
       <div className='box'>
         <article className='media article-card'>
           <div className='media-left'>
-            <p onClick={this.voteUp}><i className="fa fa-angle-up fa-3x"></i></p>
+            <p onClick={this.voteUp} className={this.state.hasVoted === 1 && 'vote-up'}>
+              <i className="fa fa-angle-up fa-3x"></i>
+            </p>
             <p>Upvotes:</p>
-            <p>{this.props.article.votes}</p>
-            <p onClick={this.voteDown}><i className="fa fa-angle-down fa-3x"></i></p>
+            <p>{this.props.article.votes + this.state.hasVoted}</p>
+            <p onClick={this.voteDown} className={this.state.hasVoted === -1 && 'vote-down'}>
+              <i className="fa fa-angle-down fa-3x"></i>
+            </p>
           </div>
           <div className='media-content'>
             <div className='content'>
