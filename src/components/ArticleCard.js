@@ -55,7 +55,7 @@ class ArticleCard extends React.Component {
                 <h3 className='title is-3'>{this.props.article.title}</h3>
               </Link>
               <p className='comment-subtext'>
-                Posted by <a href='#'>{this.props.article.created_by}</a> in <Link
+                Posted by <Link to={`/users/${this.props.article.created_by}`}>{this.props.article.created_by}</Link> in <Link
                 to={`${this.props.article.belongs_to}`}>{this.props.article.belongs_to}</Link>
               </p>
               <p className='comment-subtext'>{this.props.article.comments} comments</p>

@@ -16,7 +16,7 @@ class ArticleFull extends React.Component {
         <div className='box article'>
           <h3 className='title is-3 '>{article.title}</h3>
           <h4 className='subtitle is-6'>
-            by <a href='#'>{article.created_by}</a> in <Link to={`/${article.belongs_to}`}>{article.belongs_to}</Link>
+            by <Link to={`/users/${article.created_by}`}>{article.created_by}</Link> in <Link to={`/${article.belongs_to}`}>{article.belongs_to}</Link>
           </h4>
 
           <p style={{marginBottom: '40px'}}>

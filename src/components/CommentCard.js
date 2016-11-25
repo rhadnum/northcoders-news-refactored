@@ -3,6 +3,7 @@ import request from 'superagent';
 import {ROOT} from '../../config';
 import formatDate from '../utils/formatDate';
 import generateHtmlString from '../utils/generateHtmlString';
+import {Link} from 'react-router';
 
 
 class CommentCard extends React.Component {
@@ -61,7 +62,7 @@ class CommentCard extends React.Component {
         <p className='comment-body' dangerouslySetInnerHTML={{__html:generateHtmlString(this.props.comment.body)}}></p>
 
         <p className='comment-subtext'>
-          Posted <span>{formatDate(this.props.comment.created_at)}</span> by <a href='#'>{this.props.comment.created_by}</a>
+          Posted <span>{formatDate(this.props.comment.created_at)}</span> by <Link to={`/users/${this.props.comment.created_by}`}>{this.props.comment.created_by}</Link>
         </p>
 
         <p className="comment-votes">
