@@ -18,7 +18,7 @@ class ArticleFull extends React.Component {
             by <a href='#'>{article.created_by}</a>
             in <a href='#'>{article.belongs_to}</a>
           </h4>
-          <p>{article.body}</p>
+          <p style={{marginBottom: '40px'}}>{article.body}</p>
           {this.props.comments && <CommentContainer comments={this.props.comments} articleId={this.props.params.article_id} postCommentSuccess={this.props.postCommentSuccess} deleteCommentSuccess={this.props.deleteCommentSuccess}/>}
         </div>
       )
