@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
 import CommentContainer from './CommentContainer';
+import {Link} from 'react-router';
 
 class ArticleFull extends React.Component {
   componentDidMount () {
@@ -16,7 +17,7 @@ class ArticleFull extends React.Component {
           <h3 className='title is-3'>{article.title}</h3>
           <h4 className='subtitle is-6'>
             by <a href='#'>{article.created_by}</a>
-            in <a href='#'>{article.belongs_to}</a>
+            in <Link to={`/${article.belongs_to}`}>{article.belongs_to}</Link>
           </h4>
           <p style={{marginBottom: '40px'}}>{article.body}</p>
           {this.props.comments && <CommentContainer comments={this.props.comments} articleId={this.props.params.article_id} postCommentSuccess={this.props.postCommentSuccess} deleteCommentSuccess={this.props.deleteCommentSuccess}/>}
