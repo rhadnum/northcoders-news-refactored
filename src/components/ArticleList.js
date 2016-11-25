@@ -25,11 +25,20 @@ const ArticleList = React.createClass({
         });
     }
 
+    let title;
+
+    if(!this.props.params.topicName){
+      title = 'Home';
+    } else if (this.props.topics.length === 0) {
+      title = '';
+    } else {
+      title = this.props.topics.find((e) => e.slug === this.props.params.topicName).title;
+    }
+
     return (
       <div id='ArticleList' className='box'>
         <h3 className='title is-3'>
-          {!this.props.params.topicName || this.props.topics.length === 0
-            ? 'Home' : this.props.topics.find((e) => e.slug === this.props.params.topicName).title}
+          {title}
         </h3>
         {articles}
       </div>
