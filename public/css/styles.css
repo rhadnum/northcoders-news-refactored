@@ -34,3 +34,7 @@ body {
 .comment-card:hover .del-commment-icon{
   color:darkgrey;
 }
+
+.nav {
+  margin-bottom: 10px;
+}

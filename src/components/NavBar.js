@@ -9,14 +9,14 @@ const NavBar = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <Link to='/'>Home</Link>
+      <nav className="nav">
+        <Link to='/' className="nav-item">Home</Link>
         {
           this.props.topics && this.props.topics.map(function (topic, i) {
-            return <Link to={`/${topic.slug}`} key={i}>{topic.title}</Link>;
+            return <Link to={`/${topic.slug}`} key={i} className='nav-item'>{topic.title}</Link>;
           })
         }
-      </div>
+      </nav>
     );
   }
 });
