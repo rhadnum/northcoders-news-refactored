@@ -1,7 +1,7 @@
 import React from 'react';
 import request from 'superagent';
 import {ROOT} from '../../config';
-import moment from 'moment';
+import formatDate from '../utils/formatDate';
 
 class CommentCard extends React.Component {
   constructor(props){
@@ -49,7 +49,7 @@ class CommentCard extends React.Component {
         {this.props.comment.created_by === 'northcoder' && <span className="icon del-commment-icon" onClick={this.handleClick}><i className="fa fa-times"></i></span>}
         <p className='comment-body'>{this.props.comment.body}</p>
         <p className='comment-subtext'>
-          Posted <span>{this.formatDate()}</span> by <a href='#'>{this.props.comment.created_by}</a>
+          Posted <span>{formatDate(this.props.comment.created_at)}</span> by <a href='#'>{this.props.comment.created_by}</a>
         </p>
         <p>
           <span>Votes: {this.props.comment.votes + this.state.hasVoted}</span>
@@ -59,12 +59,6 @@ class CommentCard extends React.Component {
 
       </div>
     );
-  }
-  formatDate () {
-    let date = moment(this.props.comment.created_at);
-
-    return date.isSame(moment(), 'week') ? date.fromNow() : date.format('D MMM YYYY')
-
   }
 }
 
