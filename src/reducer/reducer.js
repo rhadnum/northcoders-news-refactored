@@ -26,6 +26,10 @@ function reducer (prevState = initialState, action) {
       newState.currArticleComments = action.data.comments;
       break;
 
+    case types.POST_COMMENT_SUCCESS:
+      newState.currArticleComments = prevState.currArticleComments.concat([action.comment]);
+      break;
+
     default:
       return prevState;
 

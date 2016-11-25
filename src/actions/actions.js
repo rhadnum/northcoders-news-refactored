@@ -50,3 +50,10 @@ export function fetchComments (id) {
       });
   };
 }
+
+export function postCommentSuccess(comment) {
+  return {
+    type: types.POST_COMMENT_SUCCESS,
+    comment
+  }
+}
