@@ -10,6 +10,7 @@ class CommentCard extends React.Component {
     }
     this.voteUp = this.voteUp.bind(this);
     this.voteDown = this.voteDown.bind(this);
+    this.handleClick= this.handleClick.bind(this);
   }
   voteUp(){
     if(this.state.hasVoted !== 0) return;
@@ -30,10 +31,18 @@ class CommentCard extends React.Component {
       .put(`${ROOT}/comments/${this.props.comment._id}?vote=down`)
       .end()
   }
+  handleClick(){
+    request
+      .del(`${ROOT}/comments/${this.props.comment._id}`)
+      .end(function (err, res) {
+        console.log(err);
+        console.log(res);
+      })
+  }
   render () {
     return (
       <div className='box comment-card'>
-        {this.props.comment.created_by === 'northcoder' && <span className="icon del-commment-icon"><i className="fa fa-times"></i></span>}
+        {this.props.comment.created_by === 'northcoder' && <span className="icon del-commment-icon" onClick={this.handleClick}><i className="fa fa-times"></i></span>}
         <p className='comment-body'>{this.props.comment.body}</p>
         <p className='comment-subtext'>
           Posted <span>{this.formatDate()}</span> by <a href='#'>{this.props.comment.created_by}</a>
