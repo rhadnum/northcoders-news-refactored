@@ -38,3 +38,11 @@ body {
 .nav {
   margin-bottom: 10px;
 }
+
+.article-card .media-left p {
+  text-align: center;
+}
+
+.media-left {
+  margin-right: 25px;
+}

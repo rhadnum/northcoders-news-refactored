@@ -4,10 +4,12 @@ import {Link} from 'react-router';
 const ArticleCard = function (props) {
   return (
     <div className='box'>
-      <article className='media'>
+      <article className='media article-card'>
         <div className='media-left'>
+          <p><i className="fa fa-angle-up fa-3x"></i></p>
           <p>Upvotes:</p>
-          {props.article.votes}
+          <p>{props.article.votes}</p>
+          <p><i className="fa fa-angle-down fa-3x"></i></p>
         </div>
         <div className='media-content'>
           <div className='content'>
