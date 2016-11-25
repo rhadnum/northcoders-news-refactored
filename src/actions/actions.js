@@ -64,3 +64,15 @@ export function deleteCommentSuccess (commentId) {
     commentId
   };
 }
+
+export function fetchUser (username) {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_USER_REQUEST});
+    request
+      .get(`${ROOT}/users/${username}`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_USER_ERROR, err });
+        else dispatch({ type: types.FETCH_USER_SUCCESS, data: res.body });
+      });
+  };
+}

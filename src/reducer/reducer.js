@@ -34,6 +34,10 @@ function reducer (prevState = initialState, action) {
       newState.currArticleComments = prevState.currArticleComments.filter((com) => com._id !== action.commentId);
       break;
 
+    case types.FETCH_USER_SUCCESS:
+      newState.currUserProfile = action.data.users[0]
+      break;
+
     default:
       return prevState;
 
