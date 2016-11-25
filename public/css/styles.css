@@ -76,3 +76,17 @@ body {
 .subtitle:not(:last-child) {
   margin-bottom: 40px;
 }
+
+.art-card{
+  margin-bottom: 20px;
+  border-bottom:1px solid darkgray;
+  padding: 20px;
+}
+
+.art-card-link:hover{
+  color: cadetblue;
+}
+
+.nav-item{
+  margin-left: 20px;
+}

@@ -55,7 +55,7 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch, props) {
   return {
     fetchArticles: () => {
-      dispatch(actions.fetchArticles(props.params.topic));
+      dispatch(actions.fetchArticles());
     }
   };
 }

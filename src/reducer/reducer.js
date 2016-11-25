@@ -6,16 +6,26 @@ const initialState = {
   topics: []
 };
 
-function reducer (prevState = initialState, action) {
+function reducer (prevState, action) {
+  prevState = prevState || initialState;
   const newState = Object.assign({}, prevState);
 
   switch (action.type) {
+
     case types.FETCH_ARTICLES_SUCCESS:
       newState.articles = action.data.articles;
       break;
 
+    case types.FETCH_ARTICLES_ERROR:
+      newState.error = action.error;
+      break;
+
     case types.FETCH_TOPICS_SUCCESS:
       newState.topics = action.data.topics;
+      break;
+
+    case types.FETCH_TOPICS_ERROR:
+      newState.error = action.error;
       break;
 
     case types.FETCH_ARTICLE_SUCCESS:

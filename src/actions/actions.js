@@ -5,11 +5,10 @@ import { ROOT } from '../../config';
 
 export function fetchArticles () {
   return (dispatch) => {
-    dispatch({ type: types.FETCH_ARTICLES_REQUEST });
     request
       .get(`${ROOT}/articles`)
       .end((err, res) => {
-        if (err) dispatch({ type: types.FETCH_ARTICLES_ERROR, err });
+        if (err) dispatch({ type: types.FETCH_ARTICLES_ERROR, error: err });
         else dispatch({ type: types.FETCH_ARTICLES_SUCCESS, data: res.body });
       });
   };
@@ -17,11 +16,10 @@ export function fetchArticles () {
 
 export function fetchTopics () {
   return (dispatch) => {
-    dispatch({ type: types.FETCH_TOPICS_REQUEST });
     request
       .get(`${ROOT}/topics`)
       .end((err, res) => {
-        if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, err });
+        if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, error: err });
         else dispatch({ type: types.FETCH_TOPICS_SUCCESS, data: res.body });
       });
   };
@@ -29,7 +27,6 @@ export function fetchTopics () {
 
 export function fetchArticle (id) {
   return (dispatch) => {
-    dispatch({ type: types.FETCH_ARTICLE_REQUEST });
     request
       .get(`${ROOT}/articles/${id}`)
       .end((err, res) => {
@@ -41,7 +38,6 @@ export function fetchArticle (id) {
 
 export function fetchComments (id) {
   return (dispatch) => {
-    dispatch({ type: types.FETCH_COMMENTS_REQUEST });
     request
       .get(`${ROOT}/articles/${id}/comments`)
       .end((err, res) => {
@@ -67,7 +63,6 @@ export function deleteCommentSuccess (commentId) {
 
 export function fetchUser (username) {
   return (dispatch) => {
-    dispatch({ type: types.FETCH_USER_REQUEST});
     request
       .get(`${ROOT}/users/${username}`)
       .end((err, res) => {

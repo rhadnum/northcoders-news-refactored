@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "test": "mocha ./spec --compilers js:babel-core/register",
+    "test": "mocha src/spec/ --compilers js:babel-core/register",
     "dev": "webpack-dev-server --inline --hot --content-base public --history-api-fallback",
     "lint": "semistandard | snazzy --verbose"
   },
@@ -17,6 +17,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
     "expect": "^1.20.2",
     "expect-jsx": "^2.6.0",
     "json-loader": "^0.5.4",
