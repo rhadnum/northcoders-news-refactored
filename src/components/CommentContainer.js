@@ -6,7 +6,7 @@ function CommentContainer (props) {
   return (
     <div className='box'>
       <h3 className='title is-3'>Comments</h3>
-      <CommentForm/>
+      <CommentForm articleId={props.articleId} />
       {
         props.comments
           .sort(function (a,b) {

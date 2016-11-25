@@ -19,7 +19,7 @@ class ArticleFull extends React.Component {
             in <a href='#'>{article.belongs_to}</a>
           </h4>
           <p>{article.body}</p>
-          {this.props.comments && <CommentContainer comments={this.props.comments} />}
+          {this.props.comments && <CommentContainer comments={this.props.comments} articleId={this.props.params.article_id}/>}
         </div>
       )
     } else {
