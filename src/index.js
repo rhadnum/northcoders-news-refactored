@@ -15,7 +15,7 @@ const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router onUpdate={() => window.scrollTo(0,0)} history={browserHistory}>
       <Route path='/' component={App}>
         <IndexRoute component={ArticleList} />
         <Route path='/article/:article_id' component={ArticleFull} />
