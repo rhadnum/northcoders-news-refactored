@@ -6,7 +6,7 @@ const App = React.createClass({
     return (
       <div>
         <h3 className='title is-3'>Northcoder News</h3>
-        <NavBar/>
+        <NavBar />
         {this.props.children}
       </div>
     );

@@ -51,17 +51,16 @@ export function fetchComments (id) {
   };
 }
 
-export function postCommentSuccess(comment) {
+export function postCommentSuccess (comment) {
   return {
     type: types.POST_COMMENT_SUCCESS,
     comment
-  }
+  };
 }
 
-export function deleteCommentSuccess(commentId) {
+export function deleteCommentSuccess (commentId) {
   return {
     type: types.DELETE_COMMENT_SUCCESS,
     commentId
-  }
+  };
 }
-

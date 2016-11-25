@@ -10,27 +10,29 @@ const NavBar = React.createClass({
   render: function () {
     return (
       <div>
-        <Link to="/">Home</Link>
-        { this.props.topics && this.props.topics.map(function (topic, i) {
-          return <Link to={`/${topic.slug}`} key={i}>{topic.title}</Link>
-        })}
+        <Link to='/'>Home</Link>
+        {
+          this.props.topics && this.props.topics.map(function (topic, i) {
+            return <Link to={`/${topic.slug}`} key={i}>{topic.title}</Link>;
+          })
+        }
       </div>
     );
   }
 });
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     topics: state.topics
-  }
-};
+  };
+}
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     fetchTopics: function () {
       dispatch(actions.fetchTopics());
     }
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

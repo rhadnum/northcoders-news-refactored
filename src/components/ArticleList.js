@@ -26,8 +26,7 @@ const ArticleList = React.createClass({
     }
 
     let title;
-
-    if(!this.props.params.topicName){
+    if (!this.props.params.topicName) {
       title = 'Home';
     } else if (this.props.topics.length === 0) {
       title = '';
