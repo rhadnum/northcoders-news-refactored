@@ -61,24 +61,9 @@ class CommentCard extends React.Component {
     );
   }
   formatDate () {
-    // const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    // let hoursAgo = Math.round((Date.now() - date) / 36e5);
-    //
-    // if (hoursAgo <= 24) {
-    //   return `${hoursAgo} hour${hoursAgo > 2 ? 's' : ''} ago`;
-    // } else {
-    //   let year = date.getFullYear() < Date.now().getFullYear ? ` ${date.getFullYear()}` : '';
-    //   return `${date.getDate()} ${months[date.getMonth()]}${year}`;
-    // }
     let date = moment(this.props.comment.created_at);
 
-    if(moment(date).isSame(moment(), 'week')){
-      return date.fromNow();
-    }
-
-    else {
-      return date.format('D MMM YYYY')
-    }
+    return date.isSame(moment(), 'week') ? date.fromNow() : date.format('D MMM YYYY')
 
   }
 }
