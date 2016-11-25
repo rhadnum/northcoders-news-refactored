@@ -27,6 +27,11 @@ class CommentForm extends React.Component {
       .post(`${ROOT}/articles/${this.props.articleId}/comments`)
       .send({"comment" : `${this.state.commentBody}`})
       .end((error, res) => {
+        if(error){
+          console.log(error);
+        } else {
+          this.props.postCommentSuccess(res.body.comment);
+        }
         this.setState({
           isSubmitting : false,
           commentBody: ''

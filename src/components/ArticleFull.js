@@ -19,7 +19,7 @@ class ArticleFull extends React.Component {
             in <a href='#'>{article.belongs_to}</a>
           </h4>
           <p>{article.body}</p>
-          {this.props.comments && <CommentContainer comments={this.props.comments} articleId={this.props.params.article_id}/>}
+          {this.props.comments && <CommentContainer comments={this.props.comments} articleId={this.props.params.article_id} postCommentSuccess={this.props.postCommentSuccess}/>}
         </div>
       )
     } else {
@@ -44,6 +44,9 @@ function mapDispatchToProps (dispatch, currProps) {
     },
     fetchComments: function () {
       dispatch(actions.fetchComments(currProps.params.article_id));
+    },
+    postCommentSuccess: function (comment) {
+      dispatch(actions.postCommentSuccess(comment))
     }
   };
 }
