@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import formatDate from '../utils/formatDate';
 
 const ArticleCard = function (props) {
   return (
@@ -14,6 +15,9 @@ const ArticleCard = function (props) {
             <Link to={`/article/${props.article._id}`}>
               <h3 className='title is-3'>{props.article.title}</h3>
             </Link>
+            <p className='comment-subtext'>
+              Posted by <a href='#'>{props.article.created_by}</a> in <Link to={`${props.article.belongs_to}`}>{props.article.belongs_to}</Link>
+            </p>
           </div>
         </div>
       </article>
