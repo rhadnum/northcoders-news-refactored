@@ -13,8 +13,8 @@ class ArticleFull extends React.Component {
     const {article} = this.props;
     if (article) {
       return (
-        <div className='box'>
-          <h3 className='title is-3'>{article.title}</h3>
+        <div className='box article'>
+          <h3 className='title is-3 '>{article.title}</h3>
           <h4 className='subtitle is-6'>
             by <a href='#'>{article.created_by}</a> in <Link to={`/${article.belongs_to}`}>{article.belongs_to}</Link>
           </h4>
