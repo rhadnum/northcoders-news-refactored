@@ -30,6 +30,10 @@ function reducer (prevState = initialState, action) {
       newState.currArticleComments = prevState.currArticleComments.concat([action.comment]);
       break;
 
+    case types.DELETE_COMMENT_SUCCESS:
+      newState.currArticleComments = prevState.currArticleComments.filter((com) => com._id !== action.commentId);
+      break;
+
     default:
       return prevState;
 

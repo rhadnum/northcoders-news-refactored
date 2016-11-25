@@ -57,3 +57,11 @@ export function postCommentSuccess(comment) {
     comment
   }
 }
+
+export function deleteCommentSuccess(commentId) {
+  return {
+    type: types.DELETE_COMMENT_SUCCESS,
+    commentId
+  }
+}
+
