@@ -32,7 +32,8 @@ class CommentCard extends React.Component {
   }
   render () {
     return (
-      <div className='box'>
+      <div className='box comment-card'>
+        {this.props.comment.created_by === 'northcoder' && <span className="icon del-commment-icon"><i className="fa fa-times"></i></span>}
         <p className='comment-body'>{this.props.comment.body}</p>
         <p className='comment-subtext'>
           Posted <span>{this.formatDate()}</span> by <a href='#'>{this.props.comment.created_by}</a>
