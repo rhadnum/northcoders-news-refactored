@@ -2,6 +2,8 @@ import React from 'react';
 import request from 'superagent';
 import {ROOT} from '../../config';
 import formatDate from '../utils/formatDate';
+import generateHtmlString from '../utils/generateHtmlString';
+
 
 class CommentCard extends React.Component {
   constructor (props) {
@@ -56,7 +58,7 @@ class CommentCard extends React.Component {
           </span>
         }
 
-        <p className='comment-body'>{this.props.comment.body}</p>
+        <p className='comment-body' dangerouslySetInnerHTML={{__html:generateHtmlString(this.props.comment.body)}}></p>
 
         <p className='comment-subtext'>
           Posted <span>{formatDate(this.props.comment.created_at)}</span> by <a href='#'>{this.props.comment.created_by}</a>
