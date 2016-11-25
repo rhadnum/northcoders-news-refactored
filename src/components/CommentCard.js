@@ -1,6 +1,7 @@
 import React from 'react';
 import request from 'superagent';
 import {ROOT} from '../../config';
+import moment from 'moment';
 
 class CommentCard extends React.Component {
   constructor(props){
@@ -60,16 +61,25 @@ class CommentCard extends React.Component {
     );
   }
   formatDate () {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let date = new Date(this.props.comment.created_at);
-    let hoursAgo = Math.round((Date.now() - date) / 36e5);
+    // const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    // let hoursAgo = Math.round((Date.now() - date) / 36e5);
+    //
+    // if (hoursAgo <= 24) {
+    //   return `${hoursAgo} hour${hoursAgo > 2 ? 's' : ''} ago`;
+    // } else {
+    //   let year = date.getFullYear() < Date.now().getFullYear ? ` ${date.getFullYear()}` : '';
+    //   return `${date.getDate()} ${months[date.getMonth()]}${year}`;
+    // }
+    let date = moment(this.props.comment.created_at);
 
-    if (hoursAgo <= 24) {
-      return `${hoursAgo} hour${hoursAgo > 2 ? 's' : ''} ago`;
-    } else {
-      let year = date.getFullYear() < Date.now().getFullYear ? ` ${date.getFullYear()}` : '';
-      return `${date.getDate()} ${months[date.getMonth()]}${year}`;
+    if(moment(date).isSame(moment(), 'week')){
+      return date.fromNow();
     }
+
+    else {
+      return date.format('D MMM YYYY')
+    }
+
   }
 }
 
