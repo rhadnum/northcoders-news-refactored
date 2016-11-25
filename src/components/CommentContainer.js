@@ -4,7 +4,7 @@ import CommentForm from './CommentForm';
 
 function CommentContainer (props) {
   return (
-    <div className='box'>
+    <div>
       <h3 className='title is-3'>Comments</h3>
       <CommentForm articleId={props.articleId} postCommentSuccess={props.postCommentSuccess} />
       {

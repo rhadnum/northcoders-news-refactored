@@ -62,13 +62,13 @@ class CommentCard extends React.Component {
           Posted <span>{formatDate(this.props.comment.created_at)}</span> by <a href='#'>{this.props.comment.created_by}</a>
         </p>
 
-        <p>
+        <p className="comment-votes">
           <span>Votes: {this.props.comment.votes + this.state.hasVoted}</span>
           <span className={`icon ${this.state.hasVoted === 1 ? 'vote-up' : ''}`} onClick={this.voteUp}>
-            <i className='fa fa-thumbs-up'></i>
+            <i className='fa fa-angle-up'></i>
           </span>
           <span className={`icon ${this.state.hasVoted === -1 ? 'vote-down' : ''}`} onClick={this.voteDown}>
-            <i className='fa fa-thumbs-down'></i>
+            <i className='fa fa-angle-down'></i>
           </span>
         </p>
 

@@ -46,3 +46,20 @@ body {
 .media-left {
   margin-right: 25px;
 }
+
+.comment-votes * {
+  vertical-align: middle;
+}
+
+.comment-votes span:first-child {
+  margin-right: 3px;
+}
+
+.comment-form {
+  margin: 0px 10% 20px 0px;
+}
+
+.comment-form .textarea {
+  margin-bottom: 10px;
+  min-height: 100px;
+}
