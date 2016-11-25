@@ -19,7 +19,7 @@ class ArticleFull extends React.Component {
             in <a href='#'>{article.belongs_to}</a>
           </h4>
           <p>{article.body}</p>
-          {this.props.comments && <CommentContainer comments={this.props.comments} articleId={this.props.params.article_id} postCommentSuccess={this.props.postCommentSuccess}/>}
+          {this.props.comments && <CommentContainer comments={this.props.comments} articleId={this.props.params.article_id} postCommentSuccess={this.props.postCommentSuccess} deleteCommentSuccess={this.props.deleteCommentSuccess}/>}
         </div>
       )
     } else {
@@ -47,8 +47,11 @@ function mapDispatchToProps (dispatch, currProps) {
     },
     postCommentSuccess: function (comment) {
       dispatch(actions.postCommentSuccess(comment))
+    },
+    deleteCommentSuccess: function (commentId) {
+      dispatch(actions.deleteCommentSuccess(commentId))
     }
-  };
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleFull);

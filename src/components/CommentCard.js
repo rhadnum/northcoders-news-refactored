@@ -34,9 +34,12 @@ class CommentCard extends React.Component {
   handleClick(){
     request
       .del(`${ROOT}/comments/${this.props.comment._id}`)
-      .end(function (err, res) {
-        console.log(err);
-        console.log(res);
+      .end((err, res) => {
+        if(err) {
+          console.log(err);
+        } else {
+          this.props.deleteCommentSuccess(this.props.comment._id)
+        }
       })
   }
   render () {

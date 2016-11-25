@@ -13,7 +13,7 @@ function CommentContainer (props) {
             return b.created_at - a.created_at;
           })
           .map((comment, i) => {
-            return <CommentCard key={i} comment={comment} />;
+            return <CommentCard key={i} comment={comment} deleteCommentSuccess={props.deleteCommentSuccess}/>;
           })
       }
     </div>
