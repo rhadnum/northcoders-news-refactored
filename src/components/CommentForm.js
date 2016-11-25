@@ -6,7 +6,8 @@ class CommentForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      commentBody: ''
+      commentBody: '',
+      isSubmitting: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,20 +19,26 @@ class CommentForm extends React.Component {
   }
   handleSubmit(event){
     event.preventDefault();
+    if(this.state.isSubmitting || this.state.commentBody === '')return;
+    this.setState({
+      isSubmitting: true
+    });
     request
       .post(`${ROOT}/articles/${this.props.articleId}/comments`)
       .send({"comment" : `${this.state.commentBody}`})
-      .end(function (error, res) {
-        console.log(error);
-        console.log(res);
+      .end((error, res) => {
+        this.setState({
+          isSubmitting : false,
+          commentBody: ''
+        })
       })
   }
   render(){
     return (
       <div className='box'>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} >
           <textarea placeholder="Create a comment!" className="textarea" value={this.state.commentBody} onChange={this.handleChange}></textarea>
-          <button className="button" type="submit">Submit</button>
+          <button className="button" type="submit">{this.state.isSubmitting ? 'Submitting' : 'Submit'}</button>
         </form>
       </div>
     );
