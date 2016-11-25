@@ -1,6 +1,7 @@
 body {
   max-width: 1000px;
   margin: 20px auto;
+  padding: 0 5px;
 }
 
 .comment-body {
@@ -62,4 +63,8 @@ body {
 .comment-form .textarea {
   margin-bottom: 10px;
   min-height: 100px;
+}
+
+.content a:not(.button):visited {
+  color: inherit;
 }
