@@ -17,7 +17,7 @@ const ArticleCard = function (props) {
             <p className='comment-subtext'>
               Posted by <a href='#'>{props.article.created_by}</a> in <Link to={`${props.article.belongs_to}`}>{props.article.belongs_to}</Link>
             </p>
-            <p className="comment-subtext">{props.article.comments} comments</p>
+            <p className='comment-subtext'>{props.article.comments} comments</p>
           </div>
         </div>
       </article>
