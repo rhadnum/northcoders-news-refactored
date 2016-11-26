@@ -32,8 +32,13 @@ body {
   transition: all 0.5s ease;
 }
 
+.comment-card{
+  padding: 3%;
+  border-bottom: 1px solid darkgray;
+}
+
 .comment-card:hover .del-commment-icon{
-  color:darkgrey;
+  color:lightgrey;
 }
 
 .nav {
