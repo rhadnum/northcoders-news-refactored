@@ -71,8 +71,8 @@ export function fetchComments (id) {
   };
 }
 
-export function fetchCommentsError(err) {
-  return { type: types.FETCH_COMMENTS_ERROR, err }
+export function fetchCommentsError(error) {
+  return { type: types.FETCH_COMMENTS_ERROR, error }
 }
 
 export function fetchCommentsSuccess(data) {
@@ -118,8 +118,8 @@ export function fetchUser (username) {
   };
 }
 
-export function fetchUserError(err) {
-  return { type: types.FETCH_USER_ERROR, err }
+export function fetchUserError(error) {
+  return { type: types.FETCH_USER_ERROR, error }
 }
 
 export function fetchUserSuccess(data) {

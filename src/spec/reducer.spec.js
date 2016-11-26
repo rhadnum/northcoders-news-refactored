@@ -1,6 +1,8 @@
 import {expect} from 'chai';
 import * as actions from '../actions/actions';
 import reducer from '../reducer/reducer';
+import fetchArticlesReducer from '../reducer/fetchArticlesReducer';
+import managaeCommentsReducer from '../reducer/manageCommentsReducer';
 
 
 describe('Reducer', function () {
@@ -17,7 +19,7 @@ describe('Reducer', function () {
       }
       var article = [{title:'today', created_at: '4:30'}, {title:'yesterday', created_at:'2:45'}];
       var myAction = actions.fetchArticlesSuccess(article);
-      var newState = reducer(initialState, myAction);
+      var newState = fetchArticlesReducer(initialState, myAction);
       expect(newState).to.eql({articles:[{title:'today', created_at: '4:30'}, {title:'yesterday', created_at:'2:45'}]});
     });
     it('should handle the ERROR action successfully', function () {
@@ -25,7 +27,7 @@ describe('Reducer', function () {
         error:''
       }
       var myAction = actions.fetchArticlesError('No articles found');
-      var newState = reducer(initialState, myAction);
+      var newState = fetchArticlesReducer(initialState, myAction);
       expect(newState).to.eql({error: 'No articles found'});
     });
   });
@@ -55,7 +57,7 @@ describe('Reducer', function () {
       }
       var article = {title:'coding today', created_at:'8:42'};
       var myAction = actions.fetchArticleSuccess(article);
-      var newState = reducer(initialState, myAction);
+      var newState = fetchArticlesReducer(initialState, myAction);
       expect(newState).to.eql({currArticle:{title:'coding today', created_at:'8:42'}});
     });
     it('should handle the ERROR action successfully', function () {
@@ -63,7 +65,7 @@ describe('Reducer', function () {
         error:''
       }
       var myAction = actions.fetchArticleError('No article found');
-      var newState = reducer(initialState, myAction);
+      var newState = fetchArticlesReducer(initialState, myAction);
       expect(newState).to.eql({error: 'No article found'});
     });
   });
@@ -74,15 +76,15 @@ describe('Reducer', function () {
       }
       var comments = [{body:'coding today', created_at:'8:42'}, {body:'coding today', created_at:'8:44'}];
       var myAction = actions.fetchCommentsSuccess(comments);
-      var newState = reducer(initialState, myAction);
+      var newState = managaeCommentsReducer(initialState, myAction);
       expect(newState).to.eql({currArticleComments:[{body:'coding today', created_at:'8:42'}, {body:'coding today', created_at:'8:44'}]});
     });
     it('should handle the ERROR action successfully', function () {
       var initialState = {
         error:''
       }
-      var myAction = actions.fetchArticleError('No comments found');
-      var newState = reducer(initialState, myAction);
+      var myAction = actions.fetchCommentsError('No comments found');
+      var newState = managaeCommentsReducer(initialState, myAction);
       expect(newState).to.eql({error: 'No comments found'});
     });
   });
@@ -93,7 +95,7 @@ describe('Reducer', function () {
       };
       var comment = [{body:'coding today', created_at:'8:42'}];
       var myAction = actions.postCommentSuccess(comment);
-      var newState = reducer(initialState, myAction);
+      var newState = managaeCommentsReducer(initialState, myAction);
       expect(newState).to.eql({
         currArticleComments: [{body: 'first comment', created_at:'23:32'}, [{body:'coding today', created_at:'8:42'}]]
       });
@@ -103,7 +105,7 @@ describe('Reducer', function () {
         error:''
       }
       var myAction = actions.postCommentError('No comment found');
-      var newState = reducer(initialState, myAction);
+      var newState = managaeCommentsReducer(initialState, myAction);
       expect(newState).to.eql({error: 'No comment found'});
     });
   });
@@ -113,7 +115,7 @@ describe('Reducer', function () {
         currArticleComments: [{body: 'first comment', created_at:'23:54', id:2}]
       };
       var myAction = actions.deleteCommentSuccess(2);
-      var newState = reducer(initialState, myAction);
+      var newState = managaeCommentsReducer(initialState, myAction);
       expect(newState).to.eql({
         currArticleComments: [{body: 'first comment', created_at:'23:54', id:2}]
       });
@@ -123,7 +125,7 @@ describe('Reducer', function () {
         error:''
       }
       var myAction = actions.deleteCommentError('No comment found');
-      var newState = reducer(initialState, myAction);
+      var newState = managaeCommentsReducer(initialState, myAction);
       expect(newState).to.eql({error: 'No comment found'});
     });
   });
@@ -143,9 +145,9 @@ describe('Reducer', function () {
       var initialState = {
         error:''
       }
-      var myAction = actions.deleteCommentError('No user found');
+      var myAction = actions.fetchUserError('No user found');
       var newState = reducer(initialState, myAction);
       expect(newState).to.eql({error: 'No user found'});
     });
-  })
+  });
 });
