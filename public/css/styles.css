@@ -92,6 +92,14 @@ body {
   color: cadetblue;
 }
 
+.art-card-name{
+  color:blue
+}
+
 .nav-item{
   margin-left: 20px;
+}
+
+.page-error{
+  text-align: center;
 }

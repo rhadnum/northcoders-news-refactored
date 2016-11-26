@@ -34,7 +34,7 @@ const ArticleList = React.createClass({
     } else if (this.props.topics.length === 0) {
       title = '';
     } else {
-      title = this.props.topics.find((e) => e.slug === this.props.params.topicName).title;
+        title = this.props.topics.find((e) => e.slug === this.props.params.topicName).title;
     }
 
     return (

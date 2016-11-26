@@ -52,7 +52,7 @@ class ArticleCard extends React.Component {
           <div className='media-content'>
             <div className='content'>
               <Link to={`/article/${this.props.article._id}`}>
-                <h3 className='title is-3 art-card-name'>{this.props.article.title}</h3>
+                <h3 className='title is-3'>{this.props.article.title}</h3>
               </Link>
               <p className='comment-subtext'>
                 Posted by <Link to={`/users/${this.props.article.created_by}`}>{this.props.article.created_by}</Link> in <Link

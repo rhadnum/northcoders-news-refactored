@@ -36,7 +36,9 @@ class ArticleFull extends React.Component {
       );
     } else {
       return (
-        <div className='box'>Loading...</div>
+        <div className='box'>
+          <p className="title page-error">Article Not Found</p>
+        </div>
       );
     }
   }
