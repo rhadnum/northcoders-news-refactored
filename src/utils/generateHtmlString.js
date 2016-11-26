@@ -1,7 +1,9 @@
 function generateHtmlString (str) {
 
-  str = str.replace(/\n/g, '<br/>')
-    .replace(/\*(.+?)\*/ig , '<strong>$1</strong>')
+  if(str){
+    str = str.replace(/\n/g, '<br/>')
+      .replace(/\*(.+?)\*/ig , '<strong>$1</strong>');
+  }
 
   return str;
 }
