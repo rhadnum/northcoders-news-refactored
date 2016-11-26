@@ -12,6 +12,9 @@ const ArticleList = React.createClass({
     let articles;
     if (!this.props.params.topicName) {
       articles = this.props.articles
+        .sort(function (a, b) {
+          return b.votes - a.votes;
+        })
         .map(function (article, i) {
           return <ArticleCard article={article} key={i} />;
         });
