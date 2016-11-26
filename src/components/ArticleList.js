@@ -39,7 +39,7 @@ const ArticleList = React.createClass({
         <h3 className='title is-3'>
           {title}
         </h3>
-        {articles}
+        {articles !== undefined ? articles : 'Loading...'}
       </div>
     );
   }
@@ -47,8 +47,8 @@ const ArticleList = React.createClass({
 
 function mapStateToProps (state) {
   return {
-    articles: state.articles,
-    topics: state.topics
+    articles: state.fetchArticlesReducer.articles,
+    topics: state.reducer.topics
   };
 }
 

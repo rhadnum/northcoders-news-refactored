@@ -1,20 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware} from 'redux';
+import { createStore, applyMiddleware, combineReducers} from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 import reducer from './reducer/reducer';
+import fetchArticlesReducer from './reducer/fetchArticlesReducer';
+import  manageCommentsReducer from './reducer/manageCommentsReducer';
 
 import App from './components/App';
 import ArticleList from './components/ArticleList';
 import ArticleFull from './components/ArticleFull';
 import UserProfile from './components/UserProfile';
 
+var reducers = combineReducers({
+  reducer,
+  fetchArticlesReducer,
+  manageCommentsReducer
+})
 
-const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
+
+
+const store = createStore(reducers, applyMiddleware(thunk, createLogger()));
 
 ReactDOM.render(
   <Provider store={store}>

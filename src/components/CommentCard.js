@@ -51,7 +51,7 @@ class CommentCard extends React.Component {
 
   render () {
     return (
-      <div className='box comment-card'>
+      <div className='comment-card'>
 
         {this.props.comment.created_by === 'northcoder' &&
           <span className='icon del-commment-icon' onClick={this.handleClick}>
